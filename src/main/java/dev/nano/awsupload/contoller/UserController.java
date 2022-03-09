@@ -13,6 +13,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("api/v1/users")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class UserController {
 
     private final UserService userService;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping(
-            path = "{userId}/image/download",
+            path = "{userId}/image/upload",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -32,5 +33,10 @@ public class UserController {
 
         userService.uploadUserImage(userId, file);
 
+    }
+
+    @GetMapping("{userId}/image/download")
+    public byte[] downloadUserProfileImage(@PathVariable("userId") UUID userId) {
+        return userService.downloadUserImage(userId);
     }
 }

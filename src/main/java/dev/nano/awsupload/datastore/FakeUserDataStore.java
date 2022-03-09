@@ -14,7 +14,7 @@ public class FakeUserDataStore {
 
     static {
         USERS.add(
-                new User(UUID.randomUUID(),
+                new User(UUID.fromString("f17e2b01-667d-4901-a605-37ec5d0befad"),
                         "miliariadnane",
                         "miliari",
                         "adnane",
@@ -23,7 +23,7 @@ public class FakeUserDataStore {
         );
 
         USERS.add(
-                new User(UUID.randomUUID(),
+                new User(UUID.fromString("cf46c3ab-5a89-4d6a-8501-40688a667bef"),
                         "jogndoe",
                         "doe",
                         "john",
